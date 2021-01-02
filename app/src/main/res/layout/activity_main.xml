@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Gemüse"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buGemuese" />
+
+
+    <TextView
+        style="@style/tvAusgabeStil"
+        android:id="@+id/tvAusgabeGemuese"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/buGemuese"
+        app:layout_constraintTop_toTopOf="@+id/buGemuese" />
+
+    <Button
+        android:id="@+id/buGemuese"
+        style="@style/buStil"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Obst"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buObst" />
+
+    <TextView
+        android:id="@+id/tvAusgabeObst"
+        style="@style/tvAusgabeStil"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/buObst"
+        app:layout_constraintTop_toTopOf="@+id/buObst" />
+
+    <Button
+        android:id="@+id/buObst"
+        style="@style/buStil"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buGemuese" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Fleisch"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buFleisch" />
+
+    <TextView
+        android:id="@+id/tvAusgabeFleisch"
+        style="@style/tvAusgabeStil"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/buFleisch"
+        app:layout_constraintTop_toTopOf="@+id/buFleisch" />
+
+    <Button
+        android:id="@+id/buFleisch"
+        style="@style/buStil"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buObst" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
