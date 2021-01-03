@@ -1,6 +1,7 @@
 # **Nouri**
 
 Nouri ist eine Android-App, mit der Daten zu Nahrung und Bewegung getrackt werden können. Zurzeit können gegessene Portionen an Gemüse, Obst und Fleisch gezählt werden.
+
 :warning: Sie befindet sich noch in der Entwicklung.
 
 ## Features to come
