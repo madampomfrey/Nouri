@@ -36,20 +36,38 @@ class MainActivity : AppCompatActivity() {
         ausgeben(tvAusgabeFleisch, anzahlFleisch)
 
         //Buttons
-        buGemuese.setOnClickListener {
+        buGemuesePlus.setOnClickListener {
             val anzahl = addiere(anzahlGemuese, 1)
             anzahlGemuese = anzahl
             ausgeben(tvAusgabeGemuese, anzahl)
         }
+        //hier keine Funktion benutzt, weil es Zeitaufwand ist, Funktionen zu nutzen und diese nur aus einer Zeile besteht.
+        buGemueseMinus.setOnClickListener {
+            val anzahl = anzahlGemuese - 1
+            anzahlGemuese = anzahl
+            ausgeben(tvAusgabeGemuese, anzahl)
+        }
 
-        buObst.setOnClickListener {
+        buObstPlus.setOnClickListener {
             val anzahl = addiere(anzahlObst, 1)
             anzahlObst = anzahl
             ausgeben(tvAusgabeObst, anzahl)
         }
 
-        buFleisch.setOnClickListener {
+        buObstMinus.setOnClickListener {
+            val anzahl = anzahlObst - 1
+            anzahlObst = anzahl
+            ausgeben(tvAusgabeObst, anzahl)
+        }
+
+        buFleischPlus.setOnClickListener {
             val anzahl = addiere(anzahlFleisch, 1)
+            anzahlFleisch = anzahl
+            ausgeben(tvAusgabeFleisch, anzahl)
+        }
+
+        buFleischMinus.setOnClickListener {
+            val anzahl = anzahlFleisch - 1
             anzahlFleisch = anzahl
             ausgeben(tvAusgabeFleisch, anzahl)
         }
@@ -79,8 +97,9 @@ class MainActivity : AppCompatActivity() {
         return anzahl
     }
 
+
     fun ausgeben(tvAusgabe: TextView, anzahl: Int) {
-        tvAusgabe.text = "%s %s".format(anzahl, textPortion)
+        tvAusgabe.text = "%s".format(anzahl)
     }
 }
 

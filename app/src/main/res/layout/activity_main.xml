@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
+<!-- Gemüse -->
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -16,18 +16,17 @@
         android:text="Gemüse"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/buGemuese" />
-
+        app:layout_constraintTop_toTopOf="@+id/buGemuesePlus" />
 
     <TextView
         style="@style/tvAusgabeStil"
         android:id="@+id/tvAusgabeGemuese"
         android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/buGemuese"
-        app:layout_constraintTop_toTopOf="@+id/buGemuese" />
+        app:layout_constraintEnd_toStartOf="@+id/buGemuesePlus"
+        app:layout_constraintTop_toTopOf="@+id/buGemuesePlus" />
 
     <Button
-        android:id="@+id/buGemuese"
+        android:id="@+id/buGemuesePlus"
         style="@style/buStil"
         android:layout_width="60dp"
         android:layout_height="60dp"
@@ -36,6 +35,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/buGemueseMinus"
+        style="@style/buStil"
+        android:text="-"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvAusgabeGemuese"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--  Obst  -->
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
@@ -44,23 +55,33 @@
         android:text="Obst"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/buObst" />
+        app:layout_constraintTop_toTopOf="@+id/buObstPlus" />
 
     <TextView
         android:id="@+id/tvAusgabeObst"
         style="@style/tvAusgabeStil"
         android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/buObst"
-        app:layout_constraintTop_toTopOf="@+id/buObst" />
+        app:layout_constraintEnd_toStartOf="@+id/buObstPlus"
+        app:layout_constraintTop_toTopOf="@+id/buObstPlus" />
 
     <Button
-        android:id="@+id/buObst"
+        android:id="@+id/buObstPlus"
         style="@style/buStil"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buGemuese" />
+        app:layout_constraintTop_toBottomOf="@+id/buGemuesePlus" />
 
+    <Button
+        android:id="@+id/buObstMinus"
+        style="@style/buStil"
+        android:text="-"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvAusgabeObst"
+        app:layout_constraintTop_toBottomOf="@+id/buGemueseMinus" />
+
+    <!--    Fleisch -->
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
@@ -69,22 +90,31 @@
         android:text="Fleisch"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/buFleisch" />
+        app:layout_constraintTop_toTopOf="@+id/buFleischPlus" />
 
     <TextView
         android:id="@+id/tvAusgabeFleisch"
         style="@style/tvAusgabeStil"
         android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/buFleisch"
-        app:layout_constraintTop_toTopOf="@+id/buFleisch" />
+        app:layout_constraintEnd_toStartOf="@+id/buFleischPlus"
+        app:layout_constraintTop_toTopOf="@+id/buFleischPlus" />
 
     <Button
-        android:id="@+id/buFleisch"
+        android:id="@+id/buFleischPlus"
         style="@style/buStil"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buObst" />
+        app:layout_constraintTop_toBottomOf="@+id/buObstPlus" />
+
+    <Button
+        android:id="@+id/buFleischMinus"
+        style="@style/buStil"
+        android:text="-"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvAusgabeFleisch"
+        app:layout_constraintTop_toBottomOf="@+id/buObstMinus" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
