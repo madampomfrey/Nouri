@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
     // Steht in der MainActivity, damit es überall immer verfügbar ist (Kontext).
     //Das Objekt wird hier definiert mit Angabe des Typs. Es wird ein Default Wert zugewiesen. Da dieser null ist, muss der Typ angegeben werden, weil sonst kein SharedPrefrences zugewiesen werden kann (Logik haha). Shared Preferences kann aber nicht null sein, daher:
-    //"lateinit" sagt: ich kann das noch nicht initialisieren, aber das werde ich schnellstmöglich. Schaltet safety feature aus. DAnn kann das OBjekt kurz null sein, bis es initialisiert wird.
+    //"lateinit" sagt: ich kann das noch nicht initialisieren, aber das werde ich schnellstmöglich. Schaltet safety feature aus. DAnn kann das Objekt kurz null sein, bis es initialisiert wird.
     lateinit var sharedPrefNahrung: SharedPreferences
 
     // Variablen für Buttons für die ganze Klasse; hier werden die Werte aus der Datei noch nicht gelesen, weil Gründe. Wird dann direkt beim Start neu gesetzt
@@ -43,9 +43,11 @@ class MainActivity : AppCompatActivity() {
         }
         //hier keine Funktion benutzt, weil es Zeitaufwand ist, Funktionen zu nutzen und diese nur aus einer Zeile besteht.
         buGemueseMinus.setOnClickListener {
-            val anzahl = anzahlGemuese - 1
-            anzahlGemuese = anzahl
-            ausgeben(tvAusgabeGemuese, anzahl)
+            if (anzahlGemuese > 0) {
+                val anzahl = anzahlGemuese - 1
+                anzahlGemuese = anzahl
+                ausgeben(tvAusgabeGemuese, anzahl)
+            }
         }
 
         buObstPlus.setOnClickListener {
@@ -55,9 +57,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         buObstMinus.setOnClickListener {
-            val anzahl = anzahlObst - 1
-            anzahlObst = anzahl
-            ausgeben(tvAusgabeObst, anzahl)
+            if (anzahlObst > 0) {
+                val anzahl = anzahlObst - 1
+                anzahlObst = anzahl
+                ausgeben(tvAusgabeObst, anzahl)
+            }
         }
 
         buFleischPlus.setOnClickListener {
@@ -67,9 +71,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         buFleischMinus.setOnClickListener {
-            val anzahl = anzahlFleisch - 1
-            anzahlFleisch = anzahl
-            ausgeben(tvAusgabeFleisch, anzahl)
+            if (anzahlFleisch > 0) {
+                val anzahl = anzahlFleisch - 1
+                anzahlFleisch = anzahl
+                ausgeben(tvAusgabeFleisch, anzahl)
+            }
+            // else könnte ich hinschreiben und leer lassen, oder eben einfach weglassen, weil es sowieso leer ist
         }
 
 
