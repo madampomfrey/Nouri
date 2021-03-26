@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         //Hier wird die Variable dann neu gesetzt mit SharedPreferences. Speichern: Datei benennen normalerweise als Variable, jetzt hier hardcoded.
         sharedPrefNahrung = getSharedPreferences(
-            "sharedPrefNahrung", Context.MODE_PRIVATE
+                "sharedPrefNahrung", Context.MODE_PRIVATE
         )
         //Werte aus der Speicherdatei sharedPrefNahrung lesen und setzen
         anzahlGemuese = sharedPrefNahrung.getInt("Gemuese", 0)
@@ -37,46 +37,27 @@ class MainActivity : AppCompatActivity() {
 
         //Buttons
         buGemuesePlus.setOnClickListener {
-            val anzahl = addiere(anzahlGemuese, 1)
-            anzahlGemuese = anzahl
-            ausgeben(tvAusgabeGemuese, anzahl)
+            zaehlButton(anzahlGemuese, tvAusgabeGemuese, true)
         }
-        //hier keine Funktion benutzt, weil es Zeitaufwand ist, Funktionen zu nutzen und diese nur aus einer Zeile besteht.
+        //hier keine Funktion zur Berechnung benutzt, weil es Zeitaufwand ist, Funktionen zu nutzen und diese nur aus einer Zeile besteht.
         buGemueseMinus.setOnClickListener {
-            if (anzahlGemuese > 0) {
-                val anzahl = anzahlGemuese - 1
-                anzahlGemuese = anzahl
-                ausgeben(tvAusgabeGemuese, anzahl)
-            }
+            zaehlButton(anzahlGemuese, tvAusgabeGemuese, false)
         }
 
         buObstPlus.setOnClickListener {
-            val anzahl = addiere(anzahlObst, 1)
-            anzahlObst = anzahl
-            ausgeben(tvAusgabeObst, anzahl)
+            zaehlButton(anzahlObst, tvAusgabeObst, true)
         }
 
         buObstMinus.setOnClickListener {
-            if (anzahlObst > 0) {
-                val anzahl = anzahlObst - 1
-                anzahlObst = anzahl
-                ausgeben(tvAusgabeObst, anzahl)
-            }
+            zaehlButton(anzahlObst, tvAusgabeObst, false)
         }
 
         buFleischPlus.setOnClickListener {
-            val anzahl = addiere(anzahlFleisch, 1)
-            anzahlFleisch = anzahl
-            ausgeben(tvAusgabeFleisch, anzahl)
+            zaehlButton(anzahlFleisch, tvAusgabeFleisch, true)
         }
 
         buFleischMinus.setOnClickListener {
-            if (anzahlFleisch > 0) {
-                val anzahl = anzahlFleisch - 1
-                anzahlFleisch = anzahl
-                ausgeben(tvAusgabeFleisch, anzahl)
-            }
-            // else könnte ich hinschreiben und leer lassen, oder eben einfach weglassen, weil es sowieso leer ist
+            zaehlButton(anzahlFleisch, tvAusgabeFleisch, false)
         }
 
 
@@ -108,5 +89,26 @@ class MainActivity : AppCompatActivity() {
     fun ausgeben(tvAusgabe: TextView, anzahl: Int) {
         tvAusgabe.text = "%s".format(anzahl)
     }
+
+    fun zaehlButton(anz: Int, tvAnz: TextView, plus: Boolean) {                     //return weggemacht, weil ich den Wert oben nicht mehr brauche; dann auch den Typ des return nicht mehr angeben
+        val anzahl = when {
+            plus -> addiere(anz, 1)
+            // heißt: if plus == true
+            anz > 0 -> addiere(anz, -1)
+            else -> return
+        }
+
+        when (tvAnz) {
+            tvAusgabeObst -> anzahlObst = anzahl
+            tvAusgabeGemuese -> anzahlGemuese = anzahl
+            else -> anzahlFleisch = anzahl
+        }
+        ausgeben(tvAnz, anzahl)
+
+    } //Parameter, die man in eine Funktion gibt, sind automatisch values und unveränderbar. An die FUnktion wird eine Kopie der Variablen gegeben, die nicht mehr die gleiche ist, wie sie oben definiert wurde.
+    // Mit "this." kann man auf Dinge in der Klasse zugreifen, die höher sind als die Funktion. Also kann man hier die Variable von oben benutzen
+
+
 }
+
 
