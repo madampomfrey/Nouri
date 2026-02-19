@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     var anzahlGemuese = 0
     var anzahlObst = 0
     var anzahlFleisch = 0
+    var anzahlSport = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,10 +28,12 @@ class MainActivity : AppCompatActivity() {
         anzahlGemuese = sharedPrefNahrung.getInt("Gemuese", 0)
         anzahlObst = sharedPrefNahrung.getInt("Obst", 0)
         anzahlFleisch = sharedPrefNahrung.getInt("Fleisch", 0)
+        anzahlSport = sharedPrefNahrung.getInt("Sport", 0)
 
         ausgeben(binding.tvAusgabeGemuese, anzahlGemuese)
         ausgeben(binding.tvAusgabeObst, anzahlObst)
         ausgeben(binding.tvAusgabeFleisch, anzahlFleisch)
+        ausgeben(binding.tvAusgabeSport, anzahlSport)
 
         binding.buGemuesePlus.setOnClickListener {
             zaehlButton(anzahlGemuese, binding.tvAusgabeGemuese, true)
@@ -54,6 +57,14 @@ class MainActivity : AppCompatActivity() {
         binding.buFleischMinus.setOnClickListener {
             zaehlButton(anzahlFleisch, binding.tvAusgabeFleisch, false)
         }
+
+        binding.buSportPlus.setOnClickListener {
+            zaehlButton(anzahlSport, binding.tvAusgabeSport, true)
+        }
+
+        binding.buSportMinus.setOnClickListener {
+            zaehlButton(anzahlSport, binding.tvAusgabeSport, false)
+        }
     }
 
     override fun onPause() {
@@ -63,6 +74,7 @@ class MainActivity : AppCompatActivity() {
         editorNahrung.putInt("Gemuese", anzahlGemuese)
         editorNahrung.putInt("Obst", anzahlObst)
         editorNahrung.putInt("Fleisch", anzahlFleisch)
+        editorNahrung.putInt("Sport", anzahlSport)
         editorNahrung.apply()
     }
 
@@ -85,7 +97,8 @@ class MainActivity : AppCompatActivity() {
         when (tvAnz) {
             binding.tvAusgabeObst -> anzahlObst = anzahl
             binding.tvAusgabeGemuese -> anzahlGemuese = anzahl
-            else -> anzahlFleisch = anzahl
+            binding.tvAusgabeFleisch -> anzahlFleisch = anzahl
+            binding.tvAusgabeSport -> anzahlSport = anzahl
         }
         ausgeben(tvAnz, anzahl)
     }
